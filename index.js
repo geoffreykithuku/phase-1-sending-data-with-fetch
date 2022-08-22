@@ -21,7 +21,7 @@ function submitData (uName, uEmail){
 	};
 	
 	
-	return fetch("http://localhost:3000/users", handleUserData)
+	let action = fetch("http://localhost:3000/users", handleUserData)
 	.then(resp => resp.json())
 	.then(json => {
 		body.append(json.id);
@@ -29,5 +29,6 @@ function submitData (uName, uEmail){
 	.catch( error => {
 		alert("A bug detected!!");
 		body.append(error);
-	});
+    });
+    return action;
 }
